@@ -12,6 +12,7 @@ import { HereoComponent } from './pages/hereo/hereo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { MaterialModule } from '../material/material.module';
+import { HeroeCardComponent } from './components/heroe-card/heroe-card.component';
 
 
 
@@ -21,10 +22,12 @@ import { MaterialModule } from '../material/material.module';
     SearchComponent,
     HereoComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+    HeroeCardComponent
   ],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     HeroesRoutingModule,
     MaterialModule
   ]
