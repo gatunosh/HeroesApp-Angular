@@ -1,1 +1,83 @@
-<p>add works!</p>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayout="40px" fxLayoutGap="40px">
+    <div fxFlex="50" fxLayout="column">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+            <mat-form-field>
+                <mat-label>Super Hero</mat-label>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    [(ngModel)]="heroe.superhero"
+                />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Alter Ego</mat-label>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    [(ngModel)]="heroe.alter_ego"
+                />
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field>
+            <mat-label>First Appearance</mat-label>
+            <input 
+                matInput
+                type="text"
+                [(ngModel)]="heroe.first_appearance"
+                required
+            />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Characters</mat-label>
+            <input 
+                matInput
+                type="text"
+                [(ngModel)]="heroe.characters"
+                required
+            />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Created by</mat-label>
+            <mat-select [(ngModel)]="heroe.publisher" required>
+                <mat-option *ngFor="let publisher of publishers"
+                            [value]="publisher.id">
+                    {{publisher.desc}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Image URL</mat-label>
+            <input 
+                matInput
+                type="text"
+                [(ngModel)]="heroe.alt_img"
+                required
+            />
+        </mat-form-field>
+
+        <div fxLayout class="spacer">
+            <button mat-raised-button color="primary"
+                (click)="save()">
+                <mat-icon>edit</mat-icon>
+                Save
+            </button>
+        
+            <button *ngIf="heroe.id" mat-raised-button color="warn"
+                (click)="deleteHero()">
+                <mat-icon>remove</mat-icon>
+                Delete
+            </button>
+        </div>
+
+    </div>
+    <div fxFlex="50">
+        <img [src]="heroe | image" />
+    </div>
+</div>
